@@ -1,0 +1,42 @@
+header {
+    border: 3px solid;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    background-color: #86f;
+    position: fixed;
+    top:0;
+    width: 100%;
+    box-sizing: border-box;
+}
+header li {
+    position: absolute;
+    top: 30px;
+    right: 80px;
+}
+img {
+    width: 238px;
+    height: 336px;
+}
+figure {
+    float:left;
+    margin: 0;
+    width: 25%;
+    box-sizing: border-box; 
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+input {
+    width: 40px;
+}
+footer {
+    border: 3px solid;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    background-color: #76f;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    box-sizing: border-box;
+}
