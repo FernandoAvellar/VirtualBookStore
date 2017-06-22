@@ -1,22 +1,31 @@
+body {
+	font-family: "Crimson Text", "Times New Roman", serif;
+	background-color: #F2FFFC;
+	line-height: 1.5;
+}
 header {
-    border: 3px solid;
+    font-family: "Open Sans Condensed", "Arial", sans-serif;
     text-align: center;
     color: white;
     text-transform: uppercase;
-    background-color: #86f;
+    background-color: #851944;
     position: fixed;
     top:0;
+    left:0;
     width: 100%;
     box-sizing: border-box;
 }
-header li {
+header img {
+    border-radius: 15%;
+    width: 50px;
+    height: 50px;
     position: absolute;
-    top: 30px;
-    right: 80px;
+    top: 20px;
+    right: 100px;
 }
 img {
-    width: 238px;
-    height: 336px;
+    width: 190px;
+    height: 269px;
 }
 figure {
     float:left;
@@ -24,19 +33,53 @@ figure {
     width: 25%;
     box-sizing: border-box; 
     padding-top: 70px;
-    padding-bottom: 70px;
+    padding-bottom: 10px;
+}
+figcaption span {
+    color: green;
+    font-size: 1.1em;
+}
+figure button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+figure button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 input {
-    width: 40px;
+    text-align: center;
+    font-size: 18px;
+    width: 45px;
+    height: 44px;
+    box-sizing: border-box;
+}
+.container {
+    width: 80%;
+	margin: auto;
+	padding: 30px 0;
 }
 footer {
-    border: 3px solid;
-    text-align: center;
     color: white;
-    text-transform: uppercase;
-    background-color: #76f;
+    background-color: #851944;
     position: fixed;
     bottom:0;
+    left:0;
     width: 100%;
-    box-sizing: border-box;
+}
+footer p {
+    display: inline-block;
+}
+.textoRodapeAutor {
+    position: relative;
+    left: 20px;
+}
+.textoRodapeInatel {
+    position: fixed;
+    right: 20px;
 }
