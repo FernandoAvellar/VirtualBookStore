@@ -4,7 +4,7 @@ body {
 	line-height: 1.5;
 }
 header {
-    font-family: "Open Sans Condensed", "Arial", sans-serif;
+    font-family: "Arial", sans-serif;
     text-align: center;
     color: white;
     text-transform: uppercase;
@@ -40,7 +40,7 @@ figcaption span {
     font-size: 1.1em;
 }
 figure button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
