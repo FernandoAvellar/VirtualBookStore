@@ -13,7 +13,7 @@ var qtdeItem4 = document.getElementById("qtdeItem4");
 
 botaoComprar1.addEventListener("click", function() {
     let id = 1;
-    let dataDaCompra = new Date;
+    let dataDaCompra = (new Date).toLocaleString();
     let qtde = qtdeItem1.value;
 
     var itemCarrinho = [{id : id, quantidade : qtde, dataDaCompra : dataDaCompra}];

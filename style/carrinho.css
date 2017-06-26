@@ -15,3 +15,9 @@ th {
     background-color: #4CAF50;
     color: white;
 }
+#returnLink {
+    position:absolute;
+    font-size:1.3em;
+    bottom:0px;
+    left:35%;
+}

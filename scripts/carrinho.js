@@ -1,13 +1,14 @@
 'use strict'
 
-var carrinhoCompras1 = [];
+var carrinhoCompras = [];
+retrieveFromLocalDB();
 
-window.addEventListener("load", function(){
+/*window.addEventListener("load", function(){
     retrieveFromLocalDB();
-});;
+});;*/
 
 function retrieveFromLocalDB() {
   let json = window.localStorage.getItem("carrinhoCompras")
-  carrinhoCompras1 = JSON.parse(json);
-  console.log(carrinhoCompras1);
+  carrinhoCompras = JSON.parse(json);
+  console.log(carrinhoCompras);
 }
