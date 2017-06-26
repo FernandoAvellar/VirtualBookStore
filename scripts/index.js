@@ -19,9 +19,12 @@ botaoComprar1.addEventListener("click", function() {
     var itemCarrinho = [{id : id, quantidade : qtde, dataDaCompra : dataDaCompra}];
 
     if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) Agile?")) {
+        retrieveFromLocalDB();
+        console.log(carrinhoCompras);
         carrinhoCompras.push(itemCarrinho);
         console.log(carrinhoCompras);
-        window.location.href = "carrinho.html"; 
+        saveOnLocalDB();
+        //window.location.href = "carrinho.html";
     }
 });
 
@@ -66,3 +69,24 @@ botaoComprar4.addEventListener("click", function() {
         console.log(carrinhoCompras);
     }
 });
+
+function saveOnLocalDB() {
+  let json = JSON.stringify(carrinhoCompras)
+  window.localStorage.setItem("carrinhoCompras", json);
+}
+
+function retrieveFromLocalDB() {
+  if(carrinhoCompras.length !== 0) {
+    let json = window.localStorage.getItem("carrinhoCompras")
+    carrinhoCompras = JSON.parse(json);
+  }
+}
+
+/*//DELET
+let code = "2";
+console.log("----> Edit")
+let index = students.findIndex(student => student.code === code)
+students.splice(index, 1); //this removes that specific item from array
+save()
+retrieve()
+console.log(students)*/
