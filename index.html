@@ -8,6 +8,7 @@
     <title>Virtual Book Store</title>
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/general.css">
+    <link rel="stylesheet" href="style/index.css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <header>    
             <h1>Virtual Book Store</h1>
             <nav>
-                <a href="carrinho.html" target="_blank"> <img src="images/carrinhoCompras.png" alt="Foto carrinho de compras"></a>
+                <a href="carrinho.html"> <img src="images/carrinhoCompras.png" alt="Foto carrinho de compras"></a>
             </nav>
         </header>
 
@@ -29,8 +30,8 @@
                     <span>Valor: R$10,00</span>
                 </figcaption>
                 <div>
-                    <input type="number" value="0" min="0">
-                    <button>Comprar</button>
+                    <input id="qtdeItem1" class="qtdeItem" type="number" value="1" min="1">
+                    <button id="botaoComprarItem1">Comprar</button>
                 </div>
             </figure>
 
@@ -41,8 +42,8 @@
                     <span>Valor: R$10,00</span>
                 </figcaption>
                 <div>
-                    <input type="number" value="0" min="0">
-                    <button>Comprar</button>
+                    <input id="qtdeItem2" class="qtdeItem" type="number" value="1" min="1">
+                    <button id="botaoComprarItem2">Comprar</button>
                 </div>
             </figure>
 
@@ -52,8 +53,8 @@
                     <span>Valor: R$10,00</span>
                 </figcaption>
                 <div>
-                    <input type="number" value="0" min="0">
-                    <button>Comprar</button>
+                    <input id="qtdeItem3" class="qtdeItem" type="number" value="1" min="1">
+                    <button id="botaoComprarItem3">Comprar</button>
                 </div>
             </figure>
 
@@ -63,8 +64,8 @@
                     <span>Valor: R$10,00</span>
                 </figcaption>
                 <div>
-                    <input type="number" value="0" min="0">
-                    <button>Comprar</button>
+                    <input id="qtdeItem4" class="qtdeItem" type="number" value="1" min="1">
+                    <button id="botaoComprarItem4">Comprar</button>
                 </div>
             </figure>
 
@@ -77,6 +78,7 @@
 
     </div>
 
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>

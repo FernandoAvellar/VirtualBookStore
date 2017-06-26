@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/general.css">
+    <link rel="stylesheet" href="style/carrinho.css">
     <title>Carrinho</title>
 </head>
+
 <body>
-    <h1>Carrinho de compras</h1>
-    
+
+    <header>
+        <h1>Carrinho de compras</h1>
+        <nav>
+            <a href="index.html"> <img src="images/homePage.png" alt="Foto botao Home"></a>
+        </nav>
+    </header>
+
+    <div id="table-div">
+        <table align='center'>
+            <tr>
+                <th id="tblQuantidade">Quantidade</th>
+                <th id="tblNome">Nome</th>
+                <th id="tblTotal">Total</th>
+                <th id="tblEdit">Remover</th>
+            </tr>
+            <!--<tr>
+                <td>2</td>
+                <td>Agile</td>
+                <td>20.00</td>
+                <td>
+                    <input type="button" value="Remover" onclick="delete_row('1')">
+                </td>
+            </tr>-->
+        </table>
+    </div>
+
+    <h3><a href="index.html">Clique aqui para continuar comprando</a></h3>
+
+    <script src="scripts/carrinho.js"></script>
 </body>
+
 </html>
