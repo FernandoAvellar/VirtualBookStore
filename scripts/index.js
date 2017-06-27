@@ -1,6 +1,7 @@
 'use strict'
 
 var carrinhoCompras = [];
+retrieveFromLocalDB();
 
 const botaoComprar1 = document.getElementById("botaoComprarItem1");
 const botaoComprar2 = document.getElementById("botaoComprarItem2");
@@ -20,9 +21,7 @@ botaoComprar1.addEventListener("click", function() {
 
     if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) Agile?")) {
         retrieveFromLocalDB();
-        console.log(carrinhoCompras);
         carrinhoCompras.push(itemCarrinho);
-        console.log(carrinhoCompras);
         saveOnLocalDB();
         //window.location.href = "carrinho.html";
     }
@@ -30,43 +29,46 @@ botaoComprar1.addEventListener("click", function() {
 
 botaoComprar2.addEventListener("click", function() {
     let id = 2;
-    let dataDaCompra = new Date;
+    let dataDaCompra = (new Date).toLocaleString();
     let qtde = qtdeItem2.value;
 
     var itemCarrinho = [{id : id, quantidade : qtde, dataDaCompra : dataDaCompra}];
 
     if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) CSS Eficiente?")) {
-        window.location.href = "carrinho.html"; 
+        retrieveFromLocalDB();
         carrinhoCompras.push(itemCarrinho);
-        console.log(carrinhoCompras);
+        saveOnLocalDB();
+        //window.location.href = "carrinho.html";
     }
 });
 
 botaoComprar3.addEventListener("click", function() {
     let id = 3;
-    let dataDaCompra = new Date;
+    let dataDaCompra = (new Date).toLocaleString();
     let qtde = qtdeItem3.value;
 
     var itemCarrinho = [{id : id, quantidade : qtde, dataDaCompra : dataDaCompra}];
 
     if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) Guia Front-End?")) {
-        window.location.href = "carrinho.html"; 
+        retrieveFromLocalDB();
         carrinhoCompras.push(itemCarrinho);
-        console.log(carrinhoCompras);
+        saveOnLocalDB();
+        //window.location.href = "carrinho.html";
     }
 });
 
 botaoComprar4.addEventListener("click", function() {
     let id = 4;
-    let dataDaCompra = new Date;
+    let dataDaCompra = (new Date).toLocaleString();
     let qtde = qtdeItem4.value;
 
     var itemCarrinho = [{id : id, quantidade : qtde, dataDaCompra : dataDaCompra}];
 
     if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) JavaFX?")) {
-        window.location.href = "carrinho.html"; 
+        retrieveFromLocalDB();
         carrinhoCompras.push(itemCarrinho);
-        console.log(carrinhoCompras);
+        saveOnLocalDB();
+        //window.location.href = "carrinho.html";
     }
 });
 
