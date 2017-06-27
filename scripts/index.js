@@ -11,70 +11,91 @@ var qtdeItem2 = document.getElementById("qtdeItem2");
 var qtdeItem3 = document.getElementById("qtdeItem3");
 var qtdeItem4 = document.getElementById("qtdeItem4");
 
-botaoComprar1.addEventListener("click", function() {
-    let id = 1;
-    let qtde = qtdeItem1.value;
-
-    var itemCarrinho = [{id : id, quantidade : qtde}];
-
-    if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) Agile?")) {
-        retrieveFromLocalDB();
-        carrinhoCompras.push(itemCarrinho);
-        saveOnLocalDB();
-        //window.location.href = "carrinho.html";
-    }
+botaoComprar1.addEventListener("click", function () {
+    executaAcaoDoBotaoDeCompra(1);
 });
 
-botaoComprar2.addEventListener("click", function() {
-    let id = 2;
-    let qtde = qtdeItem2.value;
-
-    var itemCarrinho = [{id : id, quantidade : qtde}];
-
-    if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) CSS Eficiente?")) {
-        retrieveFromLocalDB();
-        carrinhoCompras.push(itemCarrinho);
-        saveOnLocalDB();
-        //window.location.href = "carrinho.html";
-    }
+botaoComprar2.addEventListener("click", function () {
+    executaAcaoDoBotaoDeCompra(2);
 });
 
-botaoComprar3.addEventListener("click", function() {
-    let id = 3;
-    let qtde = qtdeItem3.value;
-
-    var itemCarrinho = [{id : id, quantidade : qtde}];
-
-    if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) Guia Front-End?")) {
-        retrieveFromLocalDB();
-        carrinhoCompras.push(itemCarrinho);
-        saveOnLocalDB();
-        //window.location.href = "carrinho.html";
-    }
+botaoComprar3.addEventListener("click", function () {
+    executaAcaoDoBotaoDeCompra(3);
 });
 
-botaoComprar4.addEventListener("click", function() {
-    let id = 4;
-    let qtde = qtdeItem4.value;
-
-    var itemCarrinho = [{id : id, quantidade : qtde}];
-
-    if (confirm("Tem certeza que deseja inserir no carrinho " + qtde + " livro(s) JavaFX?")) {
-        retrieveFromLocalDB();
-        carrinhoCompras.push(itemCarrinho);
-        saveOnLocalDB();
-        //window.location.href = "carrinho.html";
-    }
+botaoComprar4.addEventListener("click", function () {
+    executaAcaoDoBotaoDeCompra(4);
 });
+
+function executaAcaoDoBotaoDeCompra(numeroBotao) {
+    var qtdeItensComprados = recuperaValorDeItensComprados(numeroBotao);
+    var itemCarrinho = [{ id: numeroBotao, quantidade: qtdeItensComprados }];
+
+    if (confirm("Tem certeza que deseja inserir no carrinho " + qtdeItensComprados + " " + recuperaNomeDoLivro(numeroBotao))) {
+        
+        var posicaoDoItemNoCurrentDB = retornaPosicaoDoItemNoCurrentDB(numeroBotao);
+
+        if (posicaoDoItemNoCurrentDB !== -1) {
+            let qtdeAtual = carrinhoCompras[posicaoDoItemNoCurrentDB][0].quantidade;
+            let qtdeAtualizada = parseInt(qtdeAtual) + parseInt(qtdeItensComprados);
+            var itemCarrinho = [{ id: numeroBotao, quantidade: qtdeAtualizada }];
+            carrinhoCompras.splice(posicaoDoItemNoCurrentDB, 1, itemCarrinho);
+            saveOnLocalDB();
+            limpaEntradaDeDados();
+        }
+        else {
+            carrinhoCompras.push(itemCarrinho);
+            saveOnLocalDB();
+            limpaEntradaDeDados();
+            //window.location.href = "carrinho.html";
+        }
+    }
+}
+
+function recuperaValorDeItensComprados(numeroInput) {
+    switch (numeroInput) {
+        case 1: return qtdeItem1.value;
+        case 2: return qtdeItem2.value;
+        case 3: return qtdeItem3.value;
+        case 4: return qtdeItem4.value;
+    }
+}
+
+function retornaPosicaoDoItemNoCurrentDB(itemId) {
+    retrieveFromLocalDB();
+    let i = 0;
+    for (i = 0; i < carrinhoCompras.length; i++) {
+        if (itemId === carrinhoCompras[i][0].id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+function recuperaNomeDoLivro(id) {
+    switch (id) {
+        case 1: return "Livro(s) Agile";
+        case 2: return "Livro(s) CSS Eficiente";
+        case 3: return "Livro(s) Guia Front-End";
+        case 4: return "Livro(s) JavaFX";
+    }
+}
+
+function limpaEntradaDeDados() {
+    qtdeItem1.value = 1;
+    qtdeItem2.value = 1;
+    qtdeItem3.value = 1;
+    qtdeItem4.value = 1;
+}
 
 function saveOnLocalDB() {
-  let json = JSON.stringify(carrinhoCompras)
-  window.localStorage.setItem("carrinhoCompras", json);
+    let json = JSON.stringify(carrinhoCompras)
+    window.localStorage.setItem("carrinhoCompras", json);
 }
 
 function retrieveFromLocalDB() {
     let json = window.localStorage.getItem("carrinhoCompras")
-    if(json !== null){
+    if (json !== null) {
         carrinhoCompras = JSON.parse(json);
     }
 }
