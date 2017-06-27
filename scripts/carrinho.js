@@ -9,13 +9,14 @@ atualizarTabelaDeCompras();
 function retrieveFromLocalDB() {
   let json = window.localStorage.getItem("carrinhoCompras")
   carrinhoCompras = JSON.parse(json);
-  console.log(carrinhoCompras);
 }
 
 function atualizarTabelaDeCompras() {
-  var i = 0;
-  for (i = 0; i < carrinhoCompras.length; i++) {
-    insereLinha(i);
+  if(carrinhoCompras !== null) {
+    var i = 0;
+    for (i = 0; i < carrinhoCompras.length; i++) {
+      insereLinha(i);
+    }
   }
 }
 
