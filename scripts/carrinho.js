@@ -18,7 +18,7 @@ function insereLinha(itemIndex) {
   let nomeLivro = getNomeLivroUsandoId(carrinhoCompras[itemIndex][0].id);
   let quantidade = carrinhoCompras[itemIndex][0].quantidade;
   let valorTotal = 10 * quantidade;
-
+  let tabela = document.querySelector("table");
   let novoProduto = "<tr>" +
     "<td>" + quantidade + "</td>" +
     "<td>" + nomeLivro + "</td>" +
@@ -26,7 +26,6 @@ function insereLinha(itemIndex) {
     "<td><input type='button' value='Remover' onclick='apagarLinha(this)'></td>" +
     "</tr>";
 
-  let tabela = document.querySelector("table");
   tabela.innerHTML = tabela.innerHTML + novoProduto;
 }
 
