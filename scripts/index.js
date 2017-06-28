@@ -95,16 +95,7 @@ function saveOnLocalDB() {
 
 function retrieveFromLocalDB() {
     let json = window.localStorage.getItem("carrinhoCompras")
-    if (json !== null) {
+    if(json !== null) {
         carrinhoCompras = JSON.parse(json);
     }
 }
-
-/*//DELET
-let code = "2";
-console.log("----> Edit")
-let index = students.findIndex(student => student.code === code)
-students.splice(index, 1); //this removes that specific item from array
-save()
-retrieve()
-console.log(students)*/
