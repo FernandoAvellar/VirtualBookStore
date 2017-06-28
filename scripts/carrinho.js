@@ -32,9 +32,7 @@ function insereLinha(itemIndex) {
 
 function apagarLinha(row) {
   let nomeLivroRemovido = row.parentNode.parentNode.firstChild.nextSibling.firstChild;
-  console.log(nomeLivroRemovido);
   let idLivro = getIdLivroUsandoNome(nomeLivroRemovido);
-  console.log(idLivro);
   deleteFromLocalDB(idLivro);
   let i = row.parentNode.parentNode.rowIndex;
   document.querySelector("table").deleteRow(i);
@@ -50,10 +48,7 @@ function getNomeLivroUsandoId(id) {
 }
 
 function getIdLivroUsandoNome(nomeLivro) {
-  console.log(nomeLivro);
-
-  console.log(nomeLivro.toString() === "Livro Agile");
-  switch (nomeLivro) {
+  switch (nomeLivro.textContent) {
         case "Livro Agile": return 1;
         case "Livro CSS Eficiente": return 2;
         case "Livro Guia Front-End": return 3;
