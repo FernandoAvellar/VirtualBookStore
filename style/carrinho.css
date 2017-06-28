@@ -1,11 +1,12 @@
 #table-div {
-    position: absolute;
-    top: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
 }
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
-    width: 60%;
 }
 th, td {
     padding: 15px;
@@ -16,8 +17,6 @@ th {
     color: white;
 }
 #returnLink {
-    position:absolute;
-    font-size:1.3em;
-    bottom:0px;
-    left:35%;
+    margin-top: 30px;
+    font-size:1.2em;
 }
