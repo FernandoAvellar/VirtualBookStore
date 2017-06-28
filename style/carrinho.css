@@ -13,10 +13,20 @@ th, td {
     text-align: center;
 }
 th {
-    background-color: #4CAF50;
+    background-color: #851944;
     color: white;
 }
 #returnLink {
     margin-top: 30px;
     font-size:1.2em;
+}
+td input {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
 }
