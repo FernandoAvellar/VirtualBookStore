@@ -90,7 +90,9 @@ function limpaEntradaDeDados() {
 
 function saveOnLocalDB() {
     let json = JSON.stringify(carrinhoCompras)
-    window.localStorage.setItem("carrinhoCompras", json);
+    if(json !== null) {
+      window.localStorage.setItem("carrinhoCompras", json);
+    }
 }
 
 function retrieveFromLocalDB() {

@@ -1,9 +1,29 @@
 'use strict'
 
 var carrinhoCompras = [];
+var comprasEncerradas = [];
+const botaoConcluirCompra = document.getElementById("botaoConcluirCompra");
 
-retrieveFromLocalDB();
+retrieveFromLocalDBCarrinhoCompras();
+retrieveFromLocalDBComprasEncerradas();
 atualizarTabelaDeCompras();
+
+botaoConcluirCompra.addEventListener("click", function () {
+    executaAcaoDoBotaoConcluirCompra();
+});
+
+function executaAcaoDoBotaoConcluirCompra() {
+  if (confirm("Deseja realmente finalizar a compra?")) {
+    retrieveFromLocalDBComprasEncerradas();
+    let dataDaCompra = new Date().toLocaleDateString();
+    let itemCompraEncerrada = [{dataDaCompra}, {carrinhoCompras}];
+    comprasEncerradas.push(itemCompraEncerrada);
+    saveOnLocalDBComprasEncerradas();
+    carrinhoCompras = [];
+    saveOnLocalDBCarrinhoDeCompras();
+    location.reload();
+	}
+}
 
 function atualizarTabelaDeCompras() {
   if(carrinhoCompras !== null) {
@@ -55,24 +75,42 @@ function getIdLivroUsandoNome(nomeLivro) {
     }
 }
 
-function retrieveFromLocalDB() {
-  let json = window.localStorage.getItem("carrinhoCompras")
-  carrinhoCompras = JSON.parse(json);
+function retrieveFromLocalDBCarrinhoCompras() {
+    let json = window.localStorage.getItem("carrinhoCompras")
+    if(json !== null) {
+        carrinhoCompras = JSON.parse(json);
+    }
 }
 
-function saveOnLocalDB() {
+function retrieveFromLocalDBComprasEncerradas() {
+  let json = window.localStorage.getItem("comprasEncerradas")
+    if(json !== null) {
+        comprasEncerradas = JSON.parse(json);
+    }
+}
+
+function saveOnLocalDBCarrinhoDeCompras() {
     let json = JSON.stringify(carrinhoCompras)
-    window.localStorage.setItem("carrinhoCompras", json);
+    if(json !== null) {
+      window.localStorage.setItem("carrinhoCompras", json);
+    }
+}
+
+function saveOnLocalDBComprasEncerradas() {
+    let json = JSON.stringify(comprasEncerradas)
+    if(json !== null) {
+      window.localStorage.setItem("comprasEncerradas", json);
+    }
 }
 
 function deleteFromLocalDB(idLivro){
-  retrieveFromLocalDB;
+  retrieveFromLocalDBCarrinhoCompras;
   var i = 0;
   for(i=0 ; i<carrinhoCompras.length; i++) {
     if(idLivro === carrinhoCompras[i][0].id) {
       carrinhoCompras.splice(i,1);
       console.log(carrinhoCompras);
-      saveOnLocalDB();
+      saveOnLocalDBCarrinhoDeCompras();
     }
   }
 }
