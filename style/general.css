@@ -15,13 +15,21 @@ header {
     width: 100%;
     box-sizing: border-box;
 }
-header img {
+#iconeCarrinho, #iconeHome {
     border-radius: 15%;
     width: 50px;
     height: 50px;
     position: absolute;
     top: 20px;
-    right: 100px;
+    right: 130px;
+}
+#iconeRelatorio {
+    border-radius: 15%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: 60px;
 }
 img {
     width: 190px;

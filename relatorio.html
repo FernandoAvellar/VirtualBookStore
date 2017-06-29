@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/general.css">
-    <link rel="stylesheet" href="style/carrinho.css">
-    <title>Carrinho</title>
+    <link rel="stylesheet" href="style/relatorio.css">
+    <title>Relatorio de vendas</title>
 </head>
 
 <body>
 
     <header>
-        <h1>Carrinho de compras</h1>
+        <h1>Relatorio de vendas</h1>
         <nav>
             <a href="index.html"> <img id="iconeHome" src="images/homePage.png" alt="Foto botao Home"></a>
-            <a href="relatorio.html"> <img id="iconeRelatorio" src="images/relatorio.png" alt="Foto icone relatorio"></a>
+            <a href="carrinho.html"> <img id="iconeCarrinho" src="images/carrinhoCompras.png" alt="Foto icone carrinho de compras"></a>
         </nav>
     </header>
 
@@ -33,11 +33,7 @@
     </div>
 
     <div id="wrapper" style="text-align: center">
-        <div id="returnLink" style="display: inline-block;"><a href="index.html">Clique aqui para continuar comprando</a></div>
-    </div>
-
-    <div id="wrapper" style="text-align: center">
-        <div id="concluirCompra" style="display: inline-block;"><button id="botaoConcluirCompra" type="button">Concluir compra</button></div>
+        <div id="gerarRelatorio" style="display: inline-block;"><button id="botaoGerarRelatorio" type="button">Gerar relatório</button></div>
     </div>
 
     <footer>
@@ -45,7 +41,7 @@
         <p class="textoRodapeInatel">Projeto Final DM104 / Inatel Pós Mobile 2017</p>
     </footer>
 
-    <script src="scripts/carrinho.js"></script>
+    <script src="scripts/relatorio.js"></script>
 </body>
 
 </html>
