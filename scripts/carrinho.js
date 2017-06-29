@@ -8,23 +8,6 @@ retrieveFromLocalDBCarrinhoCompras();
 retrieveFromLocalDBComprasEncerradas();
 atualizarTabelaDeCompras();
 
-botaoConcluirCompra.addEventListener("click", function () {
-    executaAcaoDoBotaoConcluirCompra();
-});
-
-function executaAcaoDoBotaoConcluirCompra() {
-  if (confirm("Deseja realmente finalizar a compra?")) {
-    retrieveFromLocalDBComprasEncerradas();
-    let dataDaCompra = new Date().toLocaleDateString();
-    let itemCompraEncerrada = [{dataDaCompra}, {carrinhoCompras}];
-    comprasEncerradas.push(itemCompraEncerrada);
-    saveOnLocalDBComprasEncerradas();
-    carrinhoCompras = [];
-    saveOnLocalDBCarrinhoDeCompras();
-    location.reload();
-	}
-}
-
 function atualizarTabelaDeCompras() {
   if(carrinhoCompras !== null) {
     var i = 0;
@@ -55,6 +38,34 @@ function apagarLinha(row) {
   deleteFromLocalDB(idLivro);
   let i = row.parentNode.parentNode.rowIndex;
   document.querySelector("table").deleteRow(i);
+}
+
+botaoConcluirCompra.addEventListener("click", function () {
+    executaAcaoDoBotaoConcluirCompra();
+});
+
+function executaAcaoDoBotaoConcluirCompra() {
+  if (confirm("Deseja realmente finalizar a compra?")) {
+    retrieveFromLocalDBComprasEncerradas();
+    let dataDaCompra = new Date().toLocaleDateString();
+    let valorTotal = calculaValorFinalDoCarrinho();
+    let itemCompraEncerrada = [{"dataDaCompra" : dataDaCompra, "valorTotal" : valorTotal}, {carrinhoCompras}];
+    comprasEncerradas.push(itemCompraEncerrada);
+    saveOnLocalDBComprasEncerradas();
+    carrinhoCompras = [];
+    saveOnLocalDBCarrinhoDeCompras();
+    location.reload();
+	}
+}
+
+function calculaValorFinalDoCarrinho() {
+  var valorTotal = 0;
+  var i = 0;
+  for(i = 0; i < carrinhoCompras.length; i++) {
+    let qtde = carrinhoCompras[i][0].quantidade;
+    valorTotal = valorTotal + qtde*10;
+  }
+  return valorTotal;
 }
 
 function getNomeLivroUsandoId(id) {
