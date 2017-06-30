@@ -15,56 +15,6 @@ header {
     width: 100%;
     box-sizing: border-box;
 }
-#iconeCarrinho, #iconeHome {
-    border-radius: 15%;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 20px;
-    right: 130px;
-}
-#iconeRelatorio {
-    border-radius: 15%;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 20px;
-    right: 60px;
-}
-img {
-    width: 190px;
-    height: 269px;
-}
-figure {
-    float:left;
-    margin: 0;
-    width: 25%;
-    box-sizing: border-box; 
-    padding-top: 70px;
-    padding-bottom: 10px;
-}
-figcaption span {
-    color: green;
-    font-size: 1.1em;
-}
-figure button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-}
-figure button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.container {
-    width: 80%;
-	margin: auto;
-	padding: 30px 0;
-}
 footer {
     color: white;
     background-color: #851944;
@@ -83,4 +33,22 @@ footer p {
 .textoRodapeInatel {
     position: fixed;
     right: 20px;
+}
+#table-div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+th {
+    background-color: #851944;
+    color: white;
 }

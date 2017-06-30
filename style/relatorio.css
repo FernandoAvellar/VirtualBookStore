@@ -1,5 +1,4 @@
 #iconeHome {
-    border-radius: 15%;
     width: 50px;
     height: 50px;
     position: absolute;
@@ -7,7 +6,6 @@
     right: 130px;
 }
 #iconeCarrinho {
-    border-radius: 15%;
     width: 50px;
     height: 50px;
     position: absolute;
