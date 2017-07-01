@@ -125,7 +125,6 @@ function deleteFromLocalDB(idLivro) {
   for (i = 0; i < carrinhoCompras.length; i++) {
     if (idLivro === carrinhoCompras[i][0].id) {
       carrinhoCompras.splice(i, 1);
-      console.log(carrinhoCompras);
       saveOnLocalDBCarrinhoDeCompras();
     }
   }

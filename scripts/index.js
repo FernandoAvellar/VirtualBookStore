@@ -29,27 +29,37 @@ botaoComprar4.addEventListener("click", function () {
 
 function executaAcaoDoBotaoDeCompra(numeroBotao) {
     var qtdeItensComprados = recuperaValorDeItensComprados(numeroBotao);
-    var itemCarrinho = [{ id: numeroBotao, quantidade: qtdeItensComprados }];
 
-    if (confirm("Tem certeza que deseja inserir no carrinho " + qtdeItensComprados + " " + recuperaNomeDoLivro(numeroBotao))) {
-        
-        var posicaoDoItemNoCurrentDB = retornaPosicaoDoItemNoCurrentDB(numeroBotao);
+    if (qtdeItensComprados >= 1) {
 
-        if (posicaoDoItemNoCurrentDB !== -1) {
-            let qtdeAtual = carrinhoCompras[posicaoDoItemNoCurrentDB][0].quantidade;
-            let qtdeAtualizada = parseInt(qtdeAtual) + parseInt(qtdeItensComprados);
-            var itemCarrinho = [{ id: numeroBotao, quantidade: qtdeAtualizada }];
-            carrinhoCompras.splice(posicaoDoItemNoCurrentDB, 1, itemCarrinho);
-            saveOnLocalDB();
-            limpaEntradaDeDados();
-        }
-        else {
-            carrinhoCompras.push(itemCarrinho);
-            saveOnLocalDB();
-            limpaEntradaDeDados();
-            //window.location.href = "carrinho.html";
+        var itemCarrinho = [{ id: numeroBotao, quantidade: qtdeItensComprados }];
+
+        if (confirm("Tem certeza que deseja inserir no carrinho " + qtdeItensComprados + " " + recuperaNomeDoLivro(numeroBotao))) {
+
+            var posicaoDoItemNoCurrentDB = retornaPosicaoDoItemNoCurrentDB(numeroBotao);
+
+            if (posicaoDoItemNoCurrentDB !== -1) {
+                let qtdeAtual = carrinhoCompras[posicaoDoItemNoCurrentDB][0].quantidade;
+                let qtdeAtualizada = parseInt(qtdeAtual) + parseInt(qtdeItensComprados);
+                itemCarrinho = [{ id: numeroBotao, quantidade: qtdeAtualizada }];
+                carrinhoCompras.splice(posicaoDoItemNoCurrentDB, 1, itemCarrinho);
+                saveOnLocalDB();
+                limpaEntradaDeDados();
+                window.location.href = "carrinho.html";
+            }
+            else {
+                carrinhoCompras.push(itemCarrinho);
+                saveOnLocalDB();
+                limpaEntradaDeDados();
+                window.location.href = "carrinho.html";
+            }
         }
     }
+    else {
+        alert("Por favor, insira uma quantidade maior ou igual a uma unidade!");
+        limpaEntradaDeDados();
+    }
+
 }
 
 function recuperaValorDeItensComprados(numeroInput) {
@@ -90,14 +100,14 @@ function limpaEntradaDeDados() {
 
 function saveOnLocalDB() {
     let json = JSON.stringify(carrinhoCompras)
-    if(json !== null) {
-      window.localStorage.setItem("carrinhoCompras", json);
+    if (json !== null) {
+        window.localStorage.setItem("carrinhoCompras", json);
     }
 }
 
 function retrieveFromLocalDB() {
     let json = window.localStorage.getItem("carrinhoCompras")
-    if(json !== null) {
+    if (json !== null) {
         carrinhoCompras = JSON.parse(json);
     }
 }
