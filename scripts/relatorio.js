@@ -1,10 +1,20 @@
 'use strict'
 
-var comprasEncerradas = [];
 var valorTodasAsVendas = 0;
+var comprasEncerradas = [];
+var comprasAposFiltro = [];
+var botaoFiltrarRelatorio = document.getElementById("botaoFiltrarRelatorio");
+var dataInicial = document.getElementById("dataInicial");
+var dataFinal = document.getElementById("dataFinal");
 
 retrieveFromLocalDBComprasEncerradas();
 gerarRelatorioDeVendas();
+configurarDataInicialFiltroVendas();
+
+function configurarDataInicialFiltroVendas() {
+  dataInicial.valueAsDate = new Date();
+  dataFinal.valueAsDate = new Date();
+}
 
 function gerarRelatorioDeVendas() {
   valorTodasAsVendas = 0;

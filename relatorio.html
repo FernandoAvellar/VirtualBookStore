@@ -21,7 +21,16 @@
         </nav>
     </header>
 
-    <div id="table-div">
+    <div id="filtro-div" align="center">  
+        <label for="dataInicial">Data Inicial:</label>
+        <input id="dataInicial" type="date">
+        <label for="dataFinal">Data Final:</label>
+        <input id="dataFinal" type="date">
+        <br> 
+        <button id="botaoFiltrarRelatorio">Filtrar Relatorio</button>
+    </div>
+
+    <div id="table-div-relatorio">
         <table id="tabelaRelatorio" align='center'>
             <tr>
                 <th id="tblData">Data</th>
