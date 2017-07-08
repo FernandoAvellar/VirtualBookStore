@@ -1,5 +1,10 @@
 'use strict'
 
+/*{Boolean} true is this is between or equal to the start and end dates, else false
+
+Example
+var past = new Date(2000, 4, 5); var future = new Date(2010, 11, 25) Date.today().between(past, future); // true|false*/
+
 var valorTodasAsVendas = 0;
 var comprasEncerradas = [];
 var comprasAposFiltro = [];
@@ -12,8 +17,14 @@ gerarRelatorioDeVendas();
 configurarDataInicialFiltroVendas();
 
 function configurarDataInicialFiltroVendas() {
-  dataInicial.valueAsDate = new Date();
-  dataFinal.valueAsDate = new Date();
+  let agora = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+  console.log(agora);
+  let d1 = Date.parse(agora);
+  console.log(d1);
+  dataInicial.valueAsDate = d1;
+  dataFinal.valueAsDate = d1;
+  console.log(dataInicial.valueAsDate.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }))
+  console.log(dataFinal.valueAsDate.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }))
 }
 
 function gerarRelatorioDeVendas() {

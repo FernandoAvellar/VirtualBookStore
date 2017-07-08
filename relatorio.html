@@ -23,9 +23,9 @@
 
     <div id="filtro-div" align="center">  
         <label for="dataInicial">Data Inicial:</label>
-        <input id="dataInicial" type="date">
+        <input id="dataInicial" type="date" min="2017-01-01">
         <label for="dataFinal">Data Final:</label>
-        <input id="dataFinal" type="date">
+        <input id="dataFinal" type="date" min="2017-01-01">
         <br> 
         <button id="botaoFiltrarRelatorio">Filtrar Relatorio</button>
     </div>
@@ -55,6 +55,7 @@
 
     <!--Carrega a API externa do Google Charts-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="scripts/date-pt-BR.js"></script>
     <script src="scripts/relatorio.js"></script>
     <script src="scripts/googleChart.js"></script>
 </body>
