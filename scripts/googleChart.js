@@ -31,7 +31,6 @@ function percorreCarrinhosDeCompras(carrinho) {
             atualizaValoresDasVariaveis(item[z].id, item[z].quantidade);
         }
     }
-    console.log(numVendasLivroAgile);
 }
 
 function atualizaValoresDasVariaveis(idLivro, quantidadeVendida) {
