@@ -13,8 +13,11 @@
     right: 60px;
 }
 #tabelaRelatorio{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 #tabelaValorFinal{
-    margin-bottom: 250px;
+    margin-bottom: 30px;
+}
+#chart_div {
+    margin-bottom: 150px;
 }
