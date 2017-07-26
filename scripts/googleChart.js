@@ -34,7 +34,6 @@ function percorreCarrinhosDeCompras(carrinho) {
 }
 
 function atualizaValoresDasVariaveis(idLivro, quantidadeVendida) {
-    console.log("id: " + idLivro + " qtde: " + quantidadeVendida)
     switch (idLivro) {
         case 1: numVendasLivroAgile = parseInt(numVendasLivroAgile) + parseInt(quantidadeVendida);
             break;
